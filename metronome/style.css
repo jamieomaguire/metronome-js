@@ -1,0 +1,218 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.ticker {
+  background-color: #666;
+  width: 10px;
+  height: 280px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transform-origin: bottom center;
+  align-self: flex-end;
+  margin-bottom: 2em;
+}
+
+body {
+  background-color: #ddd;
+  margin: 0;
+}
+
+@keyframes rotateByBPM {
+  0% { transform: rotate(-90deg); }
+  50% {transform: rotate(90deg); }
+  100% {transform: rotate(-90deg);}
+}
+
+.pulse {
+  height: 1.5em;
+  width: 1.5em;
+  border-radius: 50%;
+  background-color: #ccc;
+  animation: pulse 1s linear infinite;
+  margin: 1em;
+}
+
+
+@keyframes pulse {
+  0% { transform: scale(0); opacity: 1; }
+  50% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+
+.pulse-box {
+  border: 1px solid pink;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+p {
+  display: inline;
+}
+
+.container {
+  background-color: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+}
+
+.box {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.box:after {
+  content: '';
+  position: absolute;
+  border: 40px solid #666;
+  bottom: 0;
+  z-index: 5;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  width: 80px;
+  height: 40px;
+  background-color: #666;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.action-button {
+  border: none;
+  background-color: #ccc;
+  color: #222;
+  height: 5em;
+  width: 5em;
+  border-radius: 50%;
+  padding: .5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: 300ms ease-out;
+  cursor: pointer;
+}
+
+.action-button:hover,
+.action-button:focus,
+.action-button:disabled {
+  background-color: #222;
+  color: #eee;
+}
+
+.action-button > i {
+  font-size: 2em;
+}
+
+
+
+/*  Flex Grid */
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* Mobile first - the initial width of each column is 100% of it's container */
+.column {
+  flex-basis: 100%;
+  padding: .5em;
+}
+
+/* Larger screens - all columns contained to a single line */
+@media screen and (min-width: 800px) {
+  .row {
+    flex-wrap: nowrap;
+    min-height: 80px;
+  }
+  .column {
+    flex: 1;
+  }
+  ._5 {
+    flex: 0.5;
+  }
+  ._15 {
+    flex: 1.5;
+  }
+  ._20 {
+    flex: 2;
+  }
+  ._25 {
+    flex: 2.5;
+  }
+  ._30 {
+    flex: 3;
+  }
+  ._35 {
+    flex: 3.5;
+  }
+  ._40 {
+    flex: 4;
+  }
+  ._45 {
+    flex: 4.5;
+  }
+  ._50 {
+    flex: 5;
+  }
+  ._55 {
+    flex: 5.5;
+  }
+  ._60 {
+    flex: 6;
+  }
+  ._65 {
+    flex: 6.5;
+  }
+  ._70 {
+    flex: 7;
+  }
+  ._75 {
+    flex: 7.5;
+  }
+  ._80 {
+    flex: 8;
+  }
+  ._85 {
+    flex: 8.5;
+  }
+  ._90 {
+    flex: 9;
+  }
+  ._95 {
+    flex: 9.5;
+  }
+}
+
+.default {
+  border: 1px solid #ccc;
+  background-color: #eee;
+  font-family: 'Helvetica', sans-serif;
+  line-height: 1.5;
+  text-align: center;
+}

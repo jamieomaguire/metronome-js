@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="row main">
+    <div class="box column">
+      <span class="ticker" id="ticker"</span>
+    </div>
+    </div>
+
+    <div class="row">
+      <div class="controls column _30 default centered">
+        <button type="button" class="action-button" id="play-metronome"><i class="fa fa-play"></i></button>
+        <button type="button" class="action-button" id="pause-metronome"><i class="fa fa-pause"></i></button>
+      </div>
+      <div class="note-selection column _70 default centered" id="notes">
+        <label>
+          Whole Note <input type="radio" value="whole" name="note-selection" />
+        </label>
+        <label>
+          Half Note <input type="radio" value="half" name="note-selection" checked />
+        </label>
+        <label>
+          Quarter Note <input type="radio" value="quarter" name="note-selection" />
+        </label>
+        <label>
+          Eighth Note <input type="radio" value="eighth" name="note-selection" />
+        </label>
+        <label>
+          Sixteenth <input type="radio" value="sixteenth" name="note-selection" />
+        </label>
+        <label>
+          Thirty-second <input type="radio" value="thirtySecond" name="note-selection" />
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="column _10 default centered">
+          <p><span class="bpm-reading" id="bpm-reading"></span> bpm</p>
+      </div>
+      <div class="bpm-slider column _90 default centered">
+        <input id="bpm-input" type="range" min="60" max="140" step="2"/>
+       </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="app.js"></script>
+</body>
+</html>
