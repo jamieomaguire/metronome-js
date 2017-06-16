@@ -1,49 +1,17 @@
 
 // BPM Input
 
-
-
-function BeatsPerMinute(bpm) {
-  this.bpm = bpm;
-
-  this.increase = function() {
-    this.bpm++;
-  }
-
-  this.decrease = function() {
-    this.bpm--;
-  }
-  
-
-}
-
-const beatsPerMinute = new BeatsPerMinute(60);
-
-console.log(beatsPerMinute);
-
-function logValue(e) {
-  console.log(e.target.value);
-}
-
-function decreaseBpm() {
-  bpmInput.value--;
-  renderBpm(bpmInput.value);
-  console.log(bpmInput.value);
-}
-
-function increaseBpm() {
-  bpmInput.value++;  
-  renderBpm(bpmInput.value);
-  console.log(bpmInput.value);
-}
-
 function renderBpm(bpm) {
   bpmReading.innerText = bpm;
 }
 
+function renderClicks(clicks) {
+  clicksReading.innerText = clicks;
+}
 
-
-
+function clearClicks() {
+  clicksReading.innerText = '';
+}
 
 const bpmToMilliseconds = {
    '60' : 4000,
@@ -108,12 +76,18 @@ function MetronomeAudio(beat) {
   this.audioId;
 
   this.play = function(data) {
+    let clicks = 0;
     this.audioId = setInterval(function() {
+      clicks++;
+      renderClicks(clicks);
       beat.play()
-      console.log(data);
     }, this[data]());
   }
 
+  this.incrementClicks = function() {
+    this.clicks++;
+    return;
+  }
   this.pause = function() {
     clearInterval(this.audioId);
   }
@@ -207,6 +181,7 @@ function MetronomeHandler(audioInstance, visualInstance) {
   this.measurement = 'halfNote';
 
   this.play = function() {
+    clearClicks();
     this.audioInstance.play(this.measurement);
     this.visualInstance.play(this.measurement);
   }
@@ -232,6 +207,7 @@ const playBtn = document.querySelector('#play-metronome');
 
 const bpmInput = document.querySelector('#bpm-input');
 const bpmReading = document.querySelector('#bpm-reading');
+const clicksReading = document.querySelector('#clicks-reading');
 const notes = document.querySelector('#notes');
 
 notes.addEventListener('click', function(e) {

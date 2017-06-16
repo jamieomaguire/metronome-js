@@ -11,10 +11,34 @@
 <body>
 
   <div class="container">
+    <div class="row">
+      <div class="column default centered">
+        <h1>Digital Metronome</h1>
+      </div>
+    </div>
+
+    <div class="row default centered">
+      <div class="column">
+        <h2>4/4 Signature</h2>
+      </div>
+    </div>
+    
     <div class="row main">
     <div class="box column">
       <span class="ticker" id="ticker"</span>
     </div>
+    </div>
+
+    <div class="row">
+      <div class="bpm-slider column _80 default centered">
+        <input id="bpm-input" type="range" min="60" max="140" step="2"/>
+      </div>
+      <div class="column _10 default centered">
+          <p><span class="bpm-reading" id="bpm-reading"></span> bpm</p>
+      </div>
+      <div class="column _10 default centered">
+          <p><span class="clicks-reading" id="clicks-reading">0</span> clicks</p>
+      </div>
     </div>
 
     <div class="row">
@@ -43,15 +67,6 @@
         </label>
       </div>
     </div>
-
-    <div class="row">
-      <div class="column _10 default centered">
-          <p><span class="bpm-reading" id="bpm-reading"></span> bpm</p>
-      </div>
-      <div class="bpm-slider column _90 default centered">
-        <input id="bpm-input" type="range" min="60" max="140" step="2"/>
-       </div>
-      </div>
     </div>
   </div>
   
